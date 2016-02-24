@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+    div {margin: 25px;}
+</style>
+<script type="text/javascript">
+	document.addEventListener('WebViewJavascriptBridgeReady',onBridgeReady, false);
+	function onBridgeReady(){
+		WebViewJavascriptBridge.setMessageHandler(function(message) {
+			var el = document.body.appendChild(document.createElement('div'));
+			el.innerHTML = message;
+			})
+		}
+    function changeImg(option){
+        document.getElementById("myImage").src = "data:image/png;base64,"+option;
+    }
+</script>
+<title>Untitled Document</title>
+</head>
+<body>
+	<div>
+    	<input type="button" value="拍照" onclick="WebViewJavascriptBridge.sendMessage('takePhotoTag')"/>
+    </div>
+    <div>
+        <img id="myImage" src="" width="250px" height="350px"/>
+    </div>
+</body>
+</html>
